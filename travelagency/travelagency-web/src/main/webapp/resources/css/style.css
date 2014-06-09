@@ -1,0 +1,427 @@
+/* 
+    Document   : style
+    Created on : Nov 25, 2012, 1:11:00 PM
+    Author     : David Simansky <d.simansky@gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+ul, li {
+    list-style-type: none;
+}
+
+div {
+    display: block;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    outline: none;
+}
+
+.banner{
+    width: 300px;
+    height: 100px;
+    display:inline-block;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: black;
+}
+
+body {    
+    background: #FDC518 url('../design/bg_1.jpg') no-repeat center top;
+    font-family: Arial,Tahoma;
+    font-size: 12px;
+    height:100%;
+}
+
+#header {
+    height:120px;    
+    width:1080px;
+    position: relative;
+    margin: 0px auto  10px auto;
+    padding: 0px;
+}
+
+#header .logo {
+    display:inline-block;
+    float:left;
+    margin: 20px 0px 10px 0px;
+}
+
+#menu {
+    /*background: url('../design/menu.png') repeat-x right;*/
+    background: #bd0000;
+    margin: 0px;
+    padding-bottom: 5px;
+    display:inline-block;
+    width: 640px;
+    height: 42px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #999;
+}
+
+#menu_ul {
+    height: 42px;
+    padding: 0px 0 0px 0px;
+}
+
+.menu_li{
+    height: 42px;    
+    float: left;
+    position: relative;
+    margin:0px 0 0 5px;
+    padding: 0px;
+}
+
+.menu_li a {
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px 5px 10px;
+    margin: 0px 10px 5px 10px;
+}
+
+.menu_li a:hover {
+    color: black;
+    background: white;
+    padding: 5px 10px 5px 10px;
+    margin: 0px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+#content{
+    width:980px;
+    margin: 0 auto 0 auto;
+    padding:10px;
+    min-height: 700px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #999;
+}
+#search{
+    width:980px;
+    margin: 0 auto 20px auto;
+    padding:10px;
+    min-height: 50px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #999;
+}
+#search label{
+    color: #bd0000;
+    font-size: 24px;
+    font-weight: bold;
+}
+div.site-width{
+    width:930px;
+    margin: 0 auto 0 auto;
+    color: black;
+    background: white;
+}
+
+#content table{
+    width:100%;
+}
+
+#content table th{
+    font-size: 18px;
+    padding:10px 0 10px 0;
+}
+
+#content table tr:hover{
+    background-color: #ffc6c6;
+}
+
+#content table td{
+    border-bottom: 2px solid #999;
+    text-align:center;
+    padding:10px 0 10px 0;
+
+}
+
+#content table tr td a{
+    color:#bd0000;  
+    text-align: center;
+    float:center;
+    display:inline-block;
+    position: relative;
+    margin: 0px;
+    padding: 10px;
+    background-color: transparent;
+}
+
+#content p {
+    float:left;
+    display:block;
+    position: relative;
+    margin:20px 10px 10px 20px;
+    padding: 5px 5px 5px 5px;
+    background-color: #bd0000;
+    border-radius: 3px;
+}
+
+#content p a{
+    margin:3px;
+    padding: 3px;
+    color:white;
+    background-color: #bd0000;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+
+#content p a:hover{
+    margin:3px;
+    padding: 3px;
+    color:black;
+    background-color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+#content form table td{
+    text-align: center;
+}
+
+#content form{
+    margin-top: 20px;
+}
+
+#content form td{
+    font-size:20px;
+    text-align:left;
+}
+
+#content form button{
+    float:right;
+    display:block;
+    position: relative;
+    margin:20px 10px 10px 0px;
+    padding: 10px 10px 10px 10px;
+    background-color: #bd0000;
+    color: white;
+    border-radius: 5px;
+    border:0px solid;
+    font-weight: bold;
+}
+
+#content form button:hover{
+    font-weight: bold;
+    color:black;
+}
+
+#content form input{
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: white;
+    line-height: 32px;
+    border: 1px solid #e7e7e6;
+    height: 32px;
+    padding: 0px 8px;
+    width: 250px;
+    margin: 0 10px;
+    background-position: 168px 8px;
+    box-shadow: inset 2px 2px 8px #d5d5d5;
+}
+#content form input:focus{
+    box-shadow: inset 2px 2px 8px lightsalmon;
+
+} 
+#search form input{
+    font-size: 20px;
+    border-radius: 3px;
+    background-color: white;
+    line-height: 32px;
+    border: 1px solid #e7e7e6;
+    height: 36px;
+    padding: 0px 8px;
+    width: 350px;
+    margin: 0 10px;
+    background-position: 168px 8px;
+    box-shadow: inset 2px 2px 8px #d5d5d5;
+}
+#search form input:focus{
+    box-shadow: inset 2px 2px 8px lightsalmon;
+
+}
+#search form button{
+    font-weight: bold;
+    float:right;
+    display:block;
+    position: relative;
+    margin:0;
+    padding: 10px 10px 10px 10px;
+    background-color: #bd0000;
+    color: white;
+    border-radius: 5px;
+    border:0px solid;
+}
+
+#search form button:hover{
+    
+    color:black;
+}
+
+#content a{
+    float:right;
+    display:inline-block;
+    position: relative;
+    margin:20px 10px 10px 0px;
+    padding: 10px 10px 10px 10px;
+    color:white;
+    background-color: #bd0000;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+
+#content a:hover{
+    color:black;
+}
+
+
+
+h1,h2,h3{
+    color: #bd0000;
+}
+
+h3{
+    font-size: 30px;  
+}
+
+
+
+a.edit:after{content:url("../design/icon_edit.png");vertical-align: baseline;margin-left: 5px}
+a.delete:after{content:url("../design/icon_delete.png");vertical-align: baseline;margin-left: 5px}
+
+a.detail:after{content:url("../design/icon_detail.png");vertical-align: baseline;margin-left: 5px}
+a.edit:after{content:url("../design/icon_edit.png");vertical-align: baseline;margin-left: 5px}
+a.delete:after{content:url("../design/icon_delete.png");vertical-align: baseline;margin-left: 5px}
+
+
+
+div#footer {    
+
+    min-height: 100px;
+    padding-top: 20px;
+    width:100%;
+}
+
+div#footer h4{
+    color: #bd0000;
+    margin-top:0;
+    font-size: 20px;
+}
+
+div#footer ul {
+    float: left;
+    width: 32%;
+    padding: 0;
+    list-style-type: none;
+}
+div#footer ul li{
+    line-height: 1.9em;
+}
+div#footer a{
+    color: black;
+    text-decoration: underline;
+}
+div#footer a:hover{
+    color: #bd0000;
+}
+div#footer ul li.mail{
+    background: url('../design/contact_mail.png') no-repeat left center;
+    padding-left: 30px;
+    vertical-align: middle;
+}
+
+
+.errorblock {
+    color: #ff0000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+}
+
+
+/*
+
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+
+
+div.clear {
+    clear: both;
+    float: none !important;
+    height: 0px  !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+
+
+
+
+
+div#nav {
+    margin-top: 10px;
+}
+div#nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+div#nav li {
+    float:left;
+}
+
+
+div#nav a {
+    color:black;
+    font-size: 115%;
+    text-decoration: none;
+    text-align: center;
+    display:block;
+    width:100px;
+    height: 25px;
+    border-right: 1px solid #ddd;
+}
+
+
+div#nav ul a:hover {
+    border-bottom: 2px solid #87009b;;    
+}
+*/
+
+

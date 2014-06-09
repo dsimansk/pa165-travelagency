@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/util/
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+        
+    <context:component-scan base-package="cz.muni.fi.pa165.travelagencyclient.web" />
+    
+    <mvc:annotation-driven />
+    
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >    
+        <property name="messageConverters">  
+            <ref bean="jsonMessageConverter"/>  
+        </property> 
+    </bean>
+    
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+    
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/content/content" />
+        <property name="cacheSeconds" value="0" />
+    </bean>
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">  
+        <property name="contentType" value="application/json"/>  
+    </bean>
+    
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+ 
+    <!-- Credentials provider needed by apache default http client -->
+    <bean id="credentialProvider" class="org.apache.http.impl.client.BasicCredentialsProvider" />
+
+    <!-- Used to invoke a method in BasicCredentialsProvider.  This has to be done this way as BasicCredentialsProvider does not take 
+    provider and credentials in constructor or setter method.  It has to set by invoking setCredentials() method and passing two arguments -->  
+    <bean id="methodInvoke" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <ref local="credentialProvider" /> 
+        </property>
+        <property name="targetMethod" value="setCredentials"> </property>
+        <property name="arguments"  >
+            <list>
+                <ref local="authScope" />
+                <ref local="credentials" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- Authorization scope for accessing restful service.  Since we want this template to be used for everything, we are setting up it with defaults -->
+    <bean id="authScope" class="org.apache.http.auth.AuthScope">
+        <constructor-arg name="host">
+            <null />
+        </constructor-arg>
+        <constructor-arg>
+            <value>-1</value> 
+        </constructor-arg>
+        <constructor-arg>
+            <null />
+        </constructor-arg>
+        <constructor-arg>
+            <null />
+        </constructor-arg>
+    </bean>
+
+    <!-- Username and Password Credentials to access restful service -->
+    <bean id="credentials" class="org.apache.http.auth.UsernamePasswordCredentials">
+        <constructor-arg name="userName">
+            <value>rest</value>
+        </constructor-arg>
+        <constructor-arg name="password">
+            <value>rest</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- Client factory which uses Apache HttpClient implementation.  Note that it DO NOT use apache commons httpclient -->
+    <bean id="httpClientFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory"> 
+        <constructor-arg ref="httpClient"/> 
+    </bean>
+
+    <bean id="httpClient" class="org.apache.http.impl.client.DefaultHttpClient">
+        <property name="credentialsProvider" ref="credentialProvider"/>
+    </bean>              
+    
+    <bean id="restTemplate" name="restTemplate" class="org.springframework.web.client.RestTemplate" autowire-candidate="true">
+        <constructor-arg ref="httpClientFactory" />
+    </bean>
+</beans>

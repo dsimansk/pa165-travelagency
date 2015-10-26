@@ -4,3 +4,7 @@ install: cd travelagency; mvn clean install
 
 jdk:
   - openjdk7
+
+branches:
+  only:
+    - master

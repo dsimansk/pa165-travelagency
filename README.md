@@ -2,6 +2,8 @@
 
 a simple enterprise application for PA165 @ FI MUNI
 
+[![Build Status](https://travis-ci.org/dsimansk/pa165-travelagency.svg?branch=master)](https://travis-ci.org/dsimansk/pa165-travelagency)
+
 
 #### REQUIREMENTS ####
 

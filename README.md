@@ -14,6 +14,7 @@ a simple enterprise application for PA165 @ FI MUNI
   and password pa165
 ```
 
+
 #### RUNNING THE APPLICATION ####
 
 Simply run the startup.sh (Unix, Linux) or startup.bat (Windows)
@@ -22,6 +23,7 @@ located in ./travelagency and ./travelagency-client
 Web application runs at http://localhost:8080/pa165/ .
 
 Client application runs at http://localhost:8081/pa165-client/ .
+
 
 
 #### DEFAULT ACCESS CREDENTIALS ####

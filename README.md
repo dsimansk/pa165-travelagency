@@ -14,6 +14,8 @@ a simple enterprise application for PA165 @ FI MUNI
   and password pa165
 ```
 
+
+
 #### RUNNING THE APPLICATION ####
 
 Simply run the startup.sh (Unix, Linux) or startup.bat (Windows)
